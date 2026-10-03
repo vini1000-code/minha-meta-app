@@ -1,4 +1,4 @@
-const CACHE='minha-meta-v15-finance-clear-v3';
+const CACHE='minha-meta-v15-finance-clear-v4';
 const FILES=['./','./index.html','./style.css','./app.js','./manifest.json','./service-worker.js'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('minha-meta-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
